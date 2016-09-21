@@ -1,0 +1,60 @@
+<html>
+<head>
+<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+     
+     	
+   
+    <style type="text/css" title="currentStyle">
+			@import "css/demo_page.css";
+			@import "css/jquery.dataTables_themeroller.css";
+			@import "css/smoothness/jquery-ui-1.10.3.custom.css";
+		</style>
+    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf-8">
+            $(document).ready(function() {
+				$('.display').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+				} );
+			} );
+		</script>
+<script type="text/javascript" language="javascript" src="js/hello.js"></script>
+     
+     	
+</head>
+<body>
+<div id="center-column">
+      <div class="top-bar"> 
+        <h1><b>WSO2 Head count as of</b></h1>
+        <div class="breadcrumbs"></div>
+      </div>
+      <br />
+      <div class="select-bar">
+       
+      </div>
+      <div class="table">
+    
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+<thead>
+        <tr>  
+            <th>Book</th>
+            <th>ISBN</th>
+           
+        </tr>
+    </thead>
+    <tbody id="sample">
+    <tr>  
+            <td>Book</td>
+            <td>ISBN</td>
+           
+        </tr>
+      
+    </tbody>
+</table>      </div>
+      <div class="table">
+      
+        <p>&nbsp;</p>
+      </div>
+    </div>
+</body>
+</html>
