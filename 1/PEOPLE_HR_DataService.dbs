@@ -1,0 +1,131 @@
+<data enableBatchRequests="true" enableBoxcarring="true" name="PEOPLE_HR_DataService" serviceNamespace="http://ws.wso2.org/dataservice" transports="http https local jms">
+   <config enableOData="false" id="default">
+      <property name="carbon_datasource_name">PEOPLE_HR_DATASOURCE</property>
+   </config>
+   <query id="select_all_PEOPLE_HR_query" useConfig="default">
+      <sql>SELECT EmployeeId, FirstName, LastName, WorkEmail, Gender, StartDate, JobRole, Company, Location, Department, ReportsTo, ResignationDate, Product, Team, SupportLead, QSPLead, TeamLead, ProductLead, SupportRotationEligible, _timestamp FROM PEOPLE_HR</sql>
+      <result element="PEOPLE_HRCollection" rowName="PEOPLE_HR">
+         <element column="EmployeeId" name="EmployeeId" xsdType="xs:string"/>
+         <element column="FirstName" name="FirstName" xsdType="xs:string"/>
+         <element column="LastName" name="LastName" xsdType="xs:string"/>
+         <element column="WorkEmail" name="WorkEmail" xsdType="xs:string"/>
+         <element column="Gender" name="Gender" xsdType="xs:string"/>
+         <element column="StartDate" name="StartDate" xsdType="xs:string"/>
+         <element column="JobRole" name="JobRole" xsdType="xs:string"/>
+         <element column="Company" name="Company" xsdType="xs:string"/>
+         <element column="Location" name="Location" xsdType="xs:string"/>
+         <element column="Department" name="Department" xsdType="xs:string"/>
+         <element column="ReportsTo" name="ReportsTo" xsdType="xs:string"/>
+         <element column="ResignationDate" name="ResignationDate" xsdType="xs:string"/>
+         <element column="Product" name="Product" xsdType="xs:string"/>
+         <element column="Team" name="Team" xsdType="xs:string"/>
+         <element column="SupportLead" name="SupportLead" xsdType="xs:string"/>
+         <element column="QSPLead" name="QSPLead" xsdType="xs:string"/>
+         <element column="TeamLead" name="TeamLead" xsdType="xs:string"/>
+         <element column="ProductLead" name="ProductLead" xsdType="xs:string"/>
+         <element column="SupportRotationEligible" name="SupportRotationEligible" xsdType="xs:string"/>
+         <element column="_timestamp" name="_timestamp" xsdType="xs:string"/>
+      </result>
+   </query>
+   <query id="insert_PEOPLE_HR_query" useConfig="default">
+      <sql>INSERT INTO PEOPLE_HR(EmployeeId,FirstName,LastName,WorkEmail,Gender,StartDate,JobRole,Company,Location,Department,ReportsTo,ResignationDate,Product,Team,SupportLead,QSPLead,TeamLead,ProductLead,SupportRotationEligible,_timestamp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</sql>
+      <param name="EmployeeId" ordinal="1" sqlType="STRING"/>
+      <param name="FirstName" ordinal="2" sqlType="STRING"/>
+      <param name="LastName" ordinal="3" sqlType="STRING"/>
+      <param name="WorkEmail" ordinal="4" sqlType="STRING"/>
+      <param name="Gender" ordinal="5" sqlType="STRING"/>
+      <param name="StartDate" ordinal="6" sqlType="STRING"/>
+      <param name="JobRole" ordinal="7" sqlType="STRING"/>
+      <param name="Company" ordinal="8" sqlType="STRING"/>
+      <param name="Location" ordinal="9" sqlType="STRING"/>
+      <param name="Department" ordinal="10" sqlType="STRING"/>
+      <param name="ReportsTo" ordinal="11" sqlType="STRING"/>
+      <param name="ResignationDate" ordinal="12" sqlType="STRING"/>
+      <param name="Product" ordinal="13" sqlType="STRING"/>
+      <param name="Team" ordinal="14" sqlType="STRING"/>
+      <param name="SupportLead" ordinal="15" sqlType="STRING"/>
+      <param name="QSPLead" ordinal="16" sqlType="STRING"/>
+      <param name="TeamLead" ordinal="17" sqlType="STRING"/>
+      <param name="ProductLead" ordinal="18" sqlType="STRING"/>
+      <param name="SupportRotationEligible" ordinal="19" sqlType="STRING"/>
+      <param name="_timestamp" ordinal="20" sqlType="STRING"/>
+   </query>
+   <query id="count_lk_without_intern_query" useConfig="default">
+      <sql>SELECT count(EmployeeId) as 'count' FROM PEOPLE_HR WHERE EmployeeId LIKE 'LK%' AND JobRole!='Intern' AND ResignationDate=''</sql>
+      <result outputType="json">{"employee": {"count": "$count"}}</result>
+   </query>
+   <query id="select_lk_without_interns" useConfig="default">
+      <sql>SELECT * FROM PEOPLE_HR WHERE EmployeeId LIKE 'LK%' AND JobRole!='Intern' AND ResignationDate='';</sql>
+      <result element="PEOPLE_HRCollection" rowName="PEOPLE_HR">
+         <element column="EmployeeId" name="EmployeeId" xsdType="xs:string"/>
+         <element column="FirstName" name="FirstName" xsdType="xs:string"/>
+         <element column="LastName" name="LastName" xsdType="xs:string"/>
+         <element column="WorkEmail" name="WorkEmail" xsdType="xs:string"/>
+         <element column="Gender" name="Gender" xsdType="xs:string"/>
+         <element column="StartDate" name="StartDate" xsdType="xs:string"/>
+         <element column="JobRole" name="JobRole" xsdType="xs:string"/>
+         <element column="Company" name="Company" xsdType="xs:string"/>
+         <element column="Location" name="Location" xsdType="xs:string"/>
+         <element column="Department" name="Department" xsdType="xs:string"/>
+         <element column="ReportsTo" name="ReportsTo" xsdType="xs:string"/>
+         <element column="ResignationDate" name="ResignationDate" xsdType="xs:string"/>
+         <element column="Product" name="Product" xsdType="xs:string"/>
+         <element column="Team" name="Team" xsdType="xs:string"/>
+         <element column="SupportLead" name="SupportLead" xsdType="xs:string"/>
+         <element column="QSPLead" name="QSPLead" xsdType="xs:string"/>
+         <element column="TeamLead" name="TeamLead" xsdType="xs:string"/>
+         <element column="ProductLead" name="ProductLead" xsdType="xs:string"/>
+         <element column="SupportRotationEligible" name="SupportRotationEligible" xsdType="xs:string"/>
+         <element column="_timestamp" name="_timestamp" xsdType="xs:string"/>
+      </result>
+   </query>
+   <query id="select_with_params_query" useConfig="default">
+      <sql>SELECT EmployeeId as 'id' FROM PEOPLE_HR WHERE EmployeeId LIKE 'LK%' AND JobRole!='Intern' AND ResignationDate='' AND FirstName=?;</sql>
+      <result outputType="json">{"employee":{"id":"$id"}}</result>
+      <param name="FirstName" sqlType="STRING"/>
+   </query>
+   <operation name="select_all_PEOPLE_HR_operation">
+      <call-query href="select_all_PEOPLE_HR_query"/>
+   </operation>
+   <operation name="insert_PEOPLE_HR_operation">
+      <call-query href="insert_PEOPLE_HR_query">
+         <with-param name="Product" query-param="Product"/>
+         <with-param name="_timestamp" query-param="_timestamp"/>
+         <with-param name="Location" query-param="Location"/>
+         <with-param name="SupportLead" query-param="SupportLead"/>
+         <with-param name="Team" query-param="Team"/>
+         <with-param name="LastName" query-param="LastName"/>
+         <with-param name="TeamLead" query-param="TeamLead"/>
+         <with-param name="StartDate" query-param="StartDate"/>
+         <with-param name="ResignationDate" query-param="ResignationDate"/>
+         <with-param name="Gender" query-param="Gender"/>
+         <with-param name="SupportRotationEligible" query-param="SupportRotationEligible"/>
+         <with-param name="FirstName" query-param="FirstName"/>
+         <with-param name="ReportsTo" query-param="ReportsTo"/>
+         <with-param name="JobRole" query-param="JobRole"/>
+         <with-param name="Company" query-param="Company"/>
+         <with-param name="Department" query-param="Department"/>
+         <with-param name="WorkEmail" query-param="WorkEmail"/>
+         <with-param name="ProductLead" query-param="ProductLead"/>
+         <with-param name="QSPLead" query-param="QSPLead"/>
+         <with-param name="EmployeeId" query-param="EmployeeId"/>
+      </call-query>
+   </operation>
+   <operation name="count_lk_without_intern_query">
+      <call-query href="count_lk_without_intern_query"/>
+   </operation>
+   <operation name="select_lk_without_interns_operation">
+      <call-query href="select_lk_without_interns"/>
+   </operation>
+   <resource method="GET" path="counts">
+      <call-query href="count_lk_without_intern_query"/>
+   </resource>
+   <resource method="GET" path="selectlk">
+      <call-query href="select_lk_without_interns"/>
+   </resource>
+   <resource method="GET" path="id">
+      <call-query href="select_with_params_query">
+         <with-param name="FirstName" query-param="FirstName"/>
+      </call-query>
+   </resource>
+</data>

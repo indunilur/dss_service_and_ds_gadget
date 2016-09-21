@@ -1,0 +1,7 @@
+$(document).ready(function() {
+    $.ajax({
+        url: "http://172.17.0.1:9764/services/PEOPLE_HR_DataService/counts"
+    }).then(function(data) {
+       $('.count').append(data.employee.count);
+    });
+});

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="temp" height="200" description="temp">
+        <Require feature="pubsub-2">
+            <Param name="topics"/>
+        </Require>
+        <Require feature="setprefs"/>
+    </ModulePrefs>
+    <UserPref name="gadget-status" default_value="not-wired" datatype="hidden" />
+    <Content type="html">
+        <![CDATA[
+<html>
+    <head>
+        <title>Hello jQuery</title>  
+<script src="js/d3.v3.min.js"></script>    
+    </head>
+
+    <body>
+        <div>
+<script>
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open("GET", "https://172.17.0.1:9444/services/PEOPLE_HR_DataService/counts", false); 
+xmlHttp.setRequestHeader("Content-Type","application/json");
+xmlHttp.setRequestHeader("Accept","application/json");
+xmlHttp.send(null);
+document.write(xmlHttp.responseText);
+console.log(xmlHttp.responseText);
+var jsonResponse = JSON.parse(xmlHttp.responseText);
+document.write(jsonResponse.employee.count);
+console.log("end of second request");
+
+
+
+</script>
+
+
+            <p class="greeting-id">The ID is </p>
+            <p class="greeting-content">The content is </p>
+        </div>
+    </body>
+</html>
+ ]]>
+    </Content>
+</Module>
