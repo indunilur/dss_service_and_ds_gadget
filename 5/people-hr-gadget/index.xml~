@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="Employee Count" height="200" description="Employee Count of WSO2">
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+<html>
+<head>
+<link href="/portal/store/carbon.super/gadget/people-hr-gadget/css/demos.css" rel="stylesheet">
+<link href="/portal/store/carbon.super/gadget/people-hr-gadget/css/jquery.dataTables_themeroller.css" rel="stylesheet">
+<link href="/portal/store/carbon.super/gadget/people-hr-gadget/css/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+<!--link href="/portal/store/carbon.super/gadget/people-hr-gadget/css/datepicker.css" rel="stylesheet"-->
+<link href="/portal/store/carbon.super/gadget/people-hr-gadget/css/normalize.css" rel="stylesheet" type="text/css"/>
+	<link href="/portal/store/carbon.super/gadget/people-hr-gadget/css/datepicker.css" rel="stylesheet" type="text/css"/>	
+
+	
+<script type="text/javascript" language="javascript" src="/portal/store/carbon.super/gadget/people-hr-gadget/js/jquery.js"></script>
+     	
+    
+     
+      
+    <script type="text/javascript" language="javascript" src="/portal/store/carbon.super/gadget/people-hr-gadget/js/jquery.dataTables.js"></script>
+   
+  
+
+   <script type="text/javascript" charset="utf-8">
+            $(document).ready(function() {
+				$('.display').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers" 
+				} );
+$('#example tbody')
+        .on( 'mouseenter', 'td', function () {
+            var colIdx = table.cell(this).index().column;
+ 
+            $( table.cells().nodes() ).removeClass( 'highlight' );
+            $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+        } );
+			} );
+		</script>
+<script type="text/javascript" language="javascript" src="/portal/store/carbon.super/gadget/people-hr-gadget/js/count.js"></script>
+<script type="text/javascript" src="/portal/store/carbon.super/gadget/people-hr-gadget/js/jquery-ui-1.8.18.custom.min.js"></script>
+
+
+     	
+</head>
+<body>
+<div id="center-column">
+      <div class="top-bar"> 
+        <h1 align="center"><b><p id="gadget_title">WSO2 Head count <input type="text" placeholder="Select Date..."id="datepicker"></p></b></h1>
+<!--div align= center><input type="text" placeholder="Select Date..."id="datepicker"></div-->
+	<input type="hidden" id="date">
+        <div class="breadcrumbs"></div>
+      </div>
+      <br />
+      <div class="select-bar">
+       
+      </div>
+      <div class="table" style="width:80%;margin: auto;font-size: 18px;">
+    
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+<thead>
+        <tr>  
+            <th>Location</th>
+            <th><div id="totalExcludingInternsFrom">Total count<br>(excluding interns)</div> </th>
+	    <th>New Joinees</th>
+            <th>Resignations</th>
+	    <th><div id="totalExcludingInternsTo">Total count<br>(excluding interns)</div> </th>
+	    <th><div id="totalInternsFrom">Total count of interns </div></th>
+	    <th>New Interns</th>
+	    <th>Intern Resignations</th>
+	    <th><div id="totalInternsTo">Total count of interns </div></th>
+           
+        </tr>
+    </thead>
+    <tbody id="sample">
+        
+    </tbody>
+</table>      </div>
+      <div class="table">
+      
+        <p>&nbsp;</p>
+      </div>
+    </div>
+</body>
+</html>
+    ]]>
+    </Content>
+</Module>

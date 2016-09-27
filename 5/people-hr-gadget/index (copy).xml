@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="Employee Count" height="200" description="Employee Count of WSO2">
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+<html>
+<head>
+<link href="/portal/store/carbon.super/gadget/people-hr-gadget/css/demos.css" rel="stylesheet">
+<link href="/portal/store/carbon.super/gadget/people-hr-gadget/css/jquery.dataTables_themeroller.css" rel="stylesheet">
+<link href="/portal/store/carbon.super/gadget/people-hr-gadget/css/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+
+
+<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+     	
+    <script type="text/javascript" language="javascript" src="js/count.js"></script>
+     
+      
+    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+   
+  <script  type="text/javascript" language="javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+   <script type="text/javascript" charset="utf-8">
+            $(document).ready(function() {
+				$('.display').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers" 
+				} );
+$('#example tbody')
+        .on( 'mouseenter', 'td', function () {
+            var colIdx = table.cell(this).index().column;
+ 
+            $( table.cells().nodes() ).removeClass( 'highlight' );
+            $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+        } );
+			} );
+		</script>
+
+     	
+</head>
+<body>
+<div id="center-column">
+      <div class="top-bar"> 
+        <h1 align="center"><b>WSO2 Head count as of  <input type="text" id="datepicker"></b></h1>
+	<input type="hidden" id="date">
+        <div class="breadcrumbs"></div>
+      </div>
+      <br />
+      <div class="select-bar">
+       
+      </div>
+      <div class="table">
+    
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+<thead>
+        <tr>  
+            <th>Location</th>
+            <th id="totalExcludingInternsFrom">Total count(excluding interns) </th>
+	    <th>New Joinees</th>
+            <th>Resignations</th>
+	    <th id="totalExcludingInternsTo">Total count(excluding interns) </th>
+	    <th id="totalInternsFrom">Total count of interns </th>
+	    <th>New Interns</th>
+	    <th>Intern Resignations</th>
+	    <th id="totalInternsTo">Total count of interns </th>
+           
+        </tr>
+    </thead>
+    <tbody id="sample">
+        
+    </tbody>
+</table>      </div>
+      <div class="table">
+      
+        <p>&nbsp;</p>
+      </div>
+    </div>
+</body>
+</html>
+    ]]>
+    </Content>
+</Module>

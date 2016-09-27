@@ -1,0 +1,10 @@
+{
+    "id": "people-hr-gadget",
+    "title": "people-hr-gadget",
+    "type": "gadget",
+    "thumbnail": "store://gadget/people-hr-gadget/index.png",
+    "data": {
+        "url": "store://gadget/people-hr-gadget/index.xml"
+    },
+    "description": "Allows to view people hr"
+}
